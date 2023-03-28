@@ -24,6 +24,10 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
+**Page sample**
+
+<img src="./awesome_books_basic_ui.png" width="250px">
+
 # 📖 Awesome Books <a name="about-project"></a>
 
 **Awesome books** is a project that keeps record of book titles and authors entered by the users. It takes and input of the title and author of a book. It have features that enable users to add and remove books from their collection.
