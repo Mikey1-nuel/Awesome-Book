@@ -49,3 +49,27 @@ function renderBooks() {
 }
 
 renderBooks();
+// Add new book to collection
+
+addBtn.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = bookTitle.value;
+  const author = `by ${bookAuthor.value}`;
+  if (title && author) {
+    // Add book and refresh book collection.
+    add(title, author);
+    renderBooks();
+    addBtn.reset();
+  }
+});
+
+// Remove book from collection by clicking the remove button
+
+bookCollectionList.addEventListener('click', (e) => {
+  if (e.target.matches('.removebtn')) {
+    const bookIndex = e.target.dataset.index;
+    // A function to remove book
+    remove(bookIndex);
+    renderBooks();
+  }
+});
