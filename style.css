@@ -11,14 +11,15 @@ body {
 .header {
   font-size: 24px;
   text-align: center;
-  padding: 15px;
 }
 
 .container1 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+	max-height: 70%;
+	margin-bottom: 30px;
 }
 
 .book-list {
@@ -28,6 +29,8 @@ body {
   align-items: center;
   width: 90%;
   border: 2px solid black;
+	margin-bottom: 20px;
+	margin-bottom: 20px;
   padding: 0 12px;
 }
 
@@ -93,6 +96,8 @@ hr {
   align-items: center;
   justify-content: center;
   padding: 20px;
+	height: 50vh;
+	gap: 40px;
 }
 
 form {
@@ -102,7 +107,7 @@ form {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  gap: 7px;
+  gap: 15px;
 }
 
 form input {
@@ -114,4 +119,80 @@ form input {
   width: 51%;
   display: flex;
   justify-content: flex-end;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 93%;
+	border: 2px solid black;
+	padding: 10px 15px;
+}
+
+.navigation {
+	list-style-type: none;
+	display: flex;
+	gap: 20px;
+}
+
+.textdec {
+	text-decoration: none;
+	font-size: 14px;
+	color: black;
+	font-weight: 600;
+}
+
+.separator {
+	border-left: 2px solid;
+}
+
+.date-time {
+	font-size: 12px;
+	font-weight: 600;
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	margin-right: 28px;
+}
+
+footer {
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	background: #fff;
+}
+
+.copyright {
+	border: 2px solid black;
+	padding: 10px;
+	width: 93%;
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.copyright h3 {
+	font-size: 16px;
+}
+
+.form {
+	display: none;
+}
+
+.blue {
+	color: blue;
+}
+
+.hr {
+	display: none;
 }
