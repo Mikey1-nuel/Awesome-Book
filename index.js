@@ -1,75 +1,96 @@
-/* checking the local storage for a book collection list. If non present,
-we create a new array to store new books. */
+// eslint-disable-next-line max-classes-per-file
+class Bookdetails {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
 
-let bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
+class Collection {
+  static getData() {
+    // eslint-disable-next-line max-len
+    // const bookCollection = localStorage.getItem('bookCollection') === null ? [] : JSON.parse(localStorage.getItem('bookCollection'));
+    const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
+    return bookCollection;
+  }
 
-// Getting documents from html
+  static add(newBook) {
+    const bookCollection = Collection.getData();
+    bookCollection.push(newBook);
+    localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  }
 
-const bookCollectionList = document.querySelector('.book-list');
+  static remove(index) {
+    let bookCollection = Collection.getData();
+    bookCollection = bookCollection.filter((book, bookIndex) => bookIndex !== +index);
+    localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  }
+}
+
+class Display {
+  static renderBooks() {
+    const bookCollectionList = document.querySelector('.book-list');
+    const bookCollection = Collection.getData();
+    bookCollectionList.innerHTML = bookCollection
+      .map((book, bookIndex) => (bookIndex % 2 === 0 ? `
+<div class="container show">
+<ul class="sub-container">
+<li>
+"${book.title}" by
+</li>
+<li>
+${book.author}
+</li>
+</ul>
+<button class='removebtn' 
+id="remove-btn"
+data-index='${bookIndex}'>Remove
+</button>        
+</div>
+        ` : `
+<div class="container">
+<ul class="sub-container">
+<li>
+"${book.title}" by
+</li>
+<li>
+${book.author}
+</li>
+</ul>
+<button class='removebtn' 
+id="remove-btn"
+data-index='${bookIndex}'>Remove
+</button>        
+</div>
+`)).join('');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', Display.renderBooks);
+
 const addBtn = document.getElementById('add-form');
 const bookTitle = document.querySelector('.titleinput');
 const bookAuthor = document.querySelector('.authorinput');
 
-// Function to add a new book to the collection
-
-function add(title, author) {
-  bookCollection.push({ title, author });
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
-
-// Function to remove book from collection
-
-function remove(index) {
-  bookCollection = bookCollection.filter((book, bookIndex) => bookIndex !== +index);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
-
-// Function to render the book list
-
-function renderBooks() {
-  bookCollectionList.innerHTML = bookCollection
-    .map(
-      (book, bookIndex) => `
-          <div class="container">
-            <li>
-              ${book.title}
-            </li>
-            <li>
-              ${book.author}
-            </li>
-            <button class='removebtn' 
-            id="remove-btn"
-            data-index='${bookIndex}'>Remove
-            </button>        
-            <hr class='book-separation'>
-          </div>
-        `,
-    )
-    .join('');
-}
-
-renderBooks();
-// Add new book to collection
-
 addBtn.addEventListener('submit', (e) => {
   e.preventDefault();
   const title = bookTitle.value;
-  const author = `by ${bookAuthor.value}`;
+  const author = bookAuthor.value;
+  const newBook = new Bookdetails(title, author);
   if (title && author) {
     // Add book and refresh book collection.
-    add(title, author);
-    renderBooks();
+    Collection.add(newBook);
+    Display.renderBooks();
     addBtn.reset();
   }
 });
 
-// Remove book from collection by clicking the remove button
-
+const bookCollectionList = document.querySelector('.book-list');
 bookCollectionList.addEventListener('click', (e) => {
   if (e.target.matches('.removebtn')) {
-    const bookIndex = e.target.dataset.index;
+    const indexNo = e.target.dataset.index;
     // A function to remove book
-    remove(bookIndex);
-    renderBooks();
+    Collection.remove(indexNo);
+    Display.renderBooks();
   }
 });
