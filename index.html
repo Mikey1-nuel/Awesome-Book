@@ -9,24 +9,33 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<header>
 		<div>
-			<h1 class="header">Awesome Books</h1>
+			<h1 class="header">All awesome books</h1>
 		</div>
 	</header>
 	<section class="container1">
 		<div class="book-list" id="book-list">
-		</div>
+		</div>	
+		<hr>
 	</section>
+
+	<section class="form">
+		<h2>Add new book</h2>
 	<form action="" method="post" id='add-form'>
 		<input type="text" name="book-title" placeholder="Title" class="titleinput" id="book-title">
 		<br>
 		<input type="text" name="book-author" placeholder="Author" class="authorinput" id="book-author">
 		<br>
+		<div class="btncont">
 		<button class="addbtn" id="add-form" type="submit">Add</button>
+	</div>
 	</form>
+</section>
 
 	<script src="index.js"></script>
 </body>
