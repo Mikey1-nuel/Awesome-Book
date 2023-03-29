@@ -103,7 +103,7 @@ date.innerHTML = newDate;
 
 const listSection = document.querySelector('.container1');
 const addSection = document.querySelector('.form');
-const contactSection = document.querySelector('.container1');
+const contactSection = document.querySelector('.contact');
 const hr = document.querySelector('.hr');
 
 list.addEventListener('click', () => {
