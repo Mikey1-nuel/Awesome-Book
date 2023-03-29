@@ -14,18 +14,27 @@
 </head>
 <body>
 	<header>
-		<div>
-			<h1 class="header">All awesome books</h1>
+		<div class="header-container">
+			<h1 class="header">Awesome books</h1>
+			<ul class="navigation">
+				<li><a href="#" class="list-link textdec blue">List</a></li>
+				<div class="separator"></div>
+				<li><a href="#" class="add-link textdec">Add new</a></li>
+				<div class="separator"></div>
+				<li><a href="#" class="contact-link textdec">Contact</a></li>
+			</ul>
 		</div>
+		<div class="date-time"><span id="date-time"></span></div>
 	</header>
 	<section class="container1">
+		<h2>All awesome books</h2>
 		<div class="book-list" id="book-list">
 		</div>	
-		<hr>
+		<hr class="hr">
 	</section>
 
 	<section class="form">
-		<h2>Add new book</h2>
+		<h2>Add a new book</h2>
 	<form action="" method="post" id='add-form'>
 		<input type="text" name="book-title" placeholder="Title" class="titleinput" id="book-title">
 		<br>
@@ -36,6 +45,12 @@
 	</div>
 	</form>
 </section>
+
+<footer class="footer">
+	<div class="copyright">
+	<h3>Copyright ...</h3>
+</div>
+</footer>
 
 	<script src="index.js"></script>
 </body>
