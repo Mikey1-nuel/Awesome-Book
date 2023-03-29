@@ -8,8 +8,6 @@ class Bookdetails {
 
 class Collection {
   static getData() {
-    // eslint-disable-next-line max-len
-    // const bookCollection = localStorage.getItem('bookCollection') === null ? [] : JSON.parse(localStorage.getItem('bookCollection'));
     const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
     return bookCollection;
   }
