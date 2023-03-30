@@ -98,8 +98,11 @@ const addNew = document.querySelector('.add-link');
 const contact = document.querySelector('.contact-link');
 const date = document.getElementById('date-time');
 
-const newDate = new Date();
-date.innerHTML = newDate;
+const live = () => {
+  const newDate = Date().slice(0, 25);
+  date.innerHTML = newDate;
+};
+setInterval(live, 1000);
 
 const listSection = document.querySelector('.container1');
 const addSection = document.querySelector('.form');
